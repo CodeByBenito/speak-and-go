@@ -1,0 +1,4 @@
+# Netlify e Cloudflare Pages: qualquer caminho sem arquivo próprio cai no app.
+# As rotas conhecidas já têm index.html gerado pelo pos-build e são servidas
+# como arquivo estático — esta regra só cobre o que sobrar.
+/*    /index.html   200

@@ -1,0 +1,62 @@
+{
+  "_leiaMe": "Fonte única das rotas do site. Consumido pelo app (src/lib/rotas.ts) e pelo script de pós-build (scripts/pos-build.mjs), que gera as páginas estáticas, o sitemap e o robots. Trocou o domínio? Mude apenas 'site'.",
+  "site": "https://speakandgo.com.br",
+  "paginas": [
+    {
+      "id": "home",
+      "caminho": "/",
+      "titulo": "Speak&Go — Mentoria de inglês com foco em conversação e vida real",
+      "descricao": "Você não precisa estudar mais inglês. Precisa começar a usar. Mentoria individual com diagnóstico, plano de evolução, aulas ao vivo e acompanhamento semanal.",
+      "prioridade": "1.0"
+    },
+    {
+      "id": "sobre",
+      "caminho": "/sobre",
+      "titulo": "Sobre a Speak&Go — Inglês para a vida real",
+      "descricao": "Missão, visão e valores da Speak&Go: simplificar o aprendizado do inglês e transformar insegurança em autonomia para falar de verdade.",
+      "prioridade": "0.7"
+    },
+    {
+      "id": "programas",
+      "caminho": "/programas",
+      "titulo": "Programas e planos — Speak&Go",
+      "descricao": "Core, Work, Travel, Exchange e Boost: programas por objetivo. Silver, Gold e Diamond: intensidades de acompanhamento. Escolha o encaixe certo.",
+      "prioridade": "0.9"
+    },
+    {
+      "id": "metodo",
+      "caminho": "/metodologia",
+      "titulo": "Speak&Go Evolution Method — a metodologia",
+      "descricao": "Diagnóstico, Plano de evolução, Aulas ao vivo, Planner semanal e Revisão de progresso: os cinco pilares que transformam aula em jornada de evolução.",
+      "prioridade": "0.8"
+    },
+    {
+      "id": "como",
+      "caminho": "/como-funciona",
+      "titulo": "Como funciona — a jornada do aluno Speak&Go",
+      "descricao": "Da conversa de diagnóstico ao ciclo de 8 semanas: as oito etapas da jornada e a anatomia de uma aula ao vivo da Speak&Go.",
+      "prioridade": "0.8"
+    },
+    {
+      "id": "materiais",
+      "caminho": "/materiais",
+      "titulo": "Materiais e ambiente do aluno — Speak&Go",
+      "descricao": "Diagnostic Map, Evolution Plan, Weekly Planner, Session Notes e Progress Review, organizados no Classroom exclusivo da sua jornada.",
+      "prioridade": "0.6"
+    },
+    {
+      "id": "contato",
+      "caminho": "/contato",
+      "titulo": "Agendar diagnóstico gratuito — Speak&Go",
+      "descricao": "Converse com a Speak&Go e descubra o programa e o plano certos para o seu objetivo. Diagnóstico individual gratuito de 30 minutos, e as dúvidas mais comuns respondidas.",
+      "prioridade": "0.9"
+    },
+    {
+      "id": "privacidade",
+      "caminho": "/privacidade",
+      "titulo": "Política de privacidade — Speak&Go",
+      "descricao": "Que dados a Speak&Go coleta, para que usa, com quem compartilha e como você pede acesso, correção ou exclusão. Em português claro.",
+      "prioridade": "0.3"
+    }
+  ]
+}

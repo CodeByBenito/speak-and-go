@@ -1,0 +1,23 @@
+{
+  "name": "Speak&Go — Mentoria de Inglês 1:1",
+  "short_name": "Speak&Go",
+  "description": "Mentoria de inglês individual com foco em conversação real, plano personalizado e professores com vivência internacional.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0E0D0C",
+  "theme_color": "#0E0D0C",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

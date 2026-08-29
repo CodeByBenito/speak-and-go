@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ---------------------------------------------------------------- */
+    /* NÚCLEO — as cores que já eram a marca                             */
+    /* ---------------------------------------------------------------- */
+    --accent: #FF5A00;        /* laranja Speak&Go */
+    --accent-hover: #FF7C33;
+    --amber: #FFB347;         /* dourado da identidade */
+    --ink: #0E0D0C;           /* preto base */
+    --beige: #F0E7D8;
+    --cream: #FFFDF9;
+    --brown: #5A3620;
+
+    /* ---------------------------------------------------------------- */
+    /* PROFUNDIDADE — família quente, para os fundos                     */
+    /* ---------------------------------------------------------------- */
+    --ink-2: #151312;         /* card elevado sobre preto */
+    --ink-3: #0B0A09;         /* rodapé */
+    --espresso: #17100B;      /* fundo de seção quente e escuro */
+    --coffee: #241610;        /* fundo de seção quente, um degrau acima */
+    --rust: #B23F0A;          /* laranja profundo, para degradês e bordas */
+    --sand: #E4D6C0;          /* bege escurecido, alterna com o bege */
+
+    /* ---------------------------------------------------------------- */
+    /* LINHAS E TEXTO                                                    */
+    /* ---------------------------------------------------------------- */
+    --line-dark: #241F1B;
+    --line-warm: #3A251A;     /* borda sobre fundo quente */
+    --line-light: #DCD0BD;
+    --text-dim: #C9BFB2;
+    --text-mute: #9B9188;
+    --text-faint: #8A8077;    /* 5,02:1 sobre --ink */
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Karla', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  input, select, textarea, button {
+    font-family: 'Karla', system-ui, sans-serif;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #8A8077;
+  }
+
+  /* Foco visível em todo elemento interativo */
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* FUNDOS DE SEÇÃO — o ritmo visual do site                            */
+/* ------------------------------------------------------------------ */
+
+/* Preto que aquece em direção ao rodapé da seção */
+.sg-bg-ember {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(255, 90, 0, 0.12), transparent 65%),
+    linear-gradient(180deg, var(--ink) 0%, var(--espresso) 100%);
+}
+
+/* Café: o degrau quente entre o preto e o bege */
+.sg-bg-coffee {
+  background:
+    radial-gradient(900px 500px at 85% 0%, rgba(255, 179, 71, 0.10), transparent 60%),
+    linear-gradient(180deg, var(--espresso) 0%, var(--coffee) 55%, var(--espresso) 100%);
+}
+
+/* Bege que ganha textura de areia nas bordas */
+.sg-bg-sand {
+  background: linear-gradient(180deg, var(--beige) 0%, var(--sand) 100%);
+}
+
+/* Faixa laranja viva, para o marquee e chamadas curtas */
+.sg-bg-flame {
+  background: linear-gradient(100deg, var(--rust) 0%, var(--accent) 42%, var(--amber) 100%);
+}
+
+/* ------------------------------------------------------------------ */
+/* TEXTURAS                                                            */
+/* ------------------------------------------------------------------ */
+
+/* Grão sutil: tira o "plástico" dos fundos chapados */
+.sg-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/* Malha de pontos, para fundos que pedem estrutura */
+.sg-dots {
+  background-image: radial-gradient(rgba(255, 253, 249, 0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.sg-dots-dark {
+  background-image: radial-gradient(rgba(90, 54, 32, 0.16) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ------------------------------------------------------------------ */
+/* MOVIMENTO                                                           */
+/* ------------------------------------------------------------------ */
+
+@keyframes sg-slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: sg-slide 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes sg-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.sg-float {
+  animation: sg-float 6s ease-in-out infinite;
+}
+
+@keyframes sg-pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  70% { transform: scale(1.5); opacity: 0; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.sg-pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  animation: sg-pulse-ring 2.4s cubic-bezier(.2,.7,.3,1) infinite;
+}
+
+/* Link dentro de texto corrido: área de toque maior, sem empurrar a linha */
+.sg-link-inline {
+  padding-block: 15px;
+  margin-block: -15px;
+}
+
+/* Sublinhado que cresce no hover */
+.sg-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.35s cubic-bezier(.2,.7,.3,1);
+}
+
+.sg-underline:hover,
+.sg-underline:focus-visible {
+  background-size: 100% 2px;
+}
+
+/* Quem pede menos movimento no sistema perde as animações decorativas —
+   as que existem para enfeitar, não para informar.
+   O reset NÃO usa `*` com `!important`: isso zerava transições de estado
+   (hover, foco, abrir e fechar de acordeão) que são feedback de interface,
+   não enfeite, e deixava a navegação sem resposta visível. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee,
+  .sg-float,
+  .sg-pulse-ring::before {
+    animation: none;
+  }
+}
