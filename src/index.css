@@ -193,6 +193,17 @@
    O reset NÃO usa `*` com `!important`: isso zerava transições de estado
    (hover, foco, abrir e fechar de acordeão) que são feedback de interface,
    não enfeite, e deixava a navegação sem resposta visível. */
+/* Barras da onda de voz no card de aula ao vivo; cada barra recebe a própria duração */
+@keyframes sg-wave {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+.sg-wave {
+  transform: scaleY(0.25);
+  animation: sg-wave 0.8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -200,6 +211,7 @@
 
   .animate-marquee,
   .sg-float,
+  .sg-wave,
   .sg-pulse-ring::before {
     animation: none;
   }

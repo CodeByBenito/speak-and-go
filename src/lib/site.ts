@@ -370,3 +370,28 @@ export const FAQ: Pergunta[] = [
       'O programa organiza o objetivo e o plano organiza a intensidade — os dois podem mudar quando a sua vida muda. Quem entra para destravar o inglês em geral e depois marca uma viagem migra de programa sem trocar de professor e sem perder o acervo. O fim de cada ciclo é exatamente o momento de redefinir isso junto com você.',
   },
 ];
+
+/* ------------------------------------------------------------------ */
+/* Aula ao vivo — a demonstração da home                               */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Roteiro encenado no card "Uma aula por dentro" da home. Não é uma aula
+ * gravada: é a lógica da aula em seis falas — você fala primeiro, o erro
+ * aparece na conversa, a correção vem na hora e vira o foco da semana.
+ *
+ * `en` é a fala; `pt` é a legenda que o visitante liga e desliga.
+ */
+export type FalaAula =
+  | { tipo: 'professor' | 'aluno'; en: string; pt: string }
+  | { tipo: 'correcao'; disse: string; certo: string; porque: string }
+  | { tipo: 'notas'; foco: string };
+
+export const AULA_DEMO: FalaAula[] = [
+  { tipo: 'professor', en: 'So, how was your week?', pt: 'E aí, como foi sua semana?' },
+  { tipo: 'aluno', en: 'Busy! I have a presentation on Friday.', pt: 'Corrida! Tenho uma apresentação na sexta.' },
+  { tipo: 'professor', en: 'Presentations are great practice, right?', pt: 'Apresentação é um ótimo treino, né?' },
+  { tipo: 'aluno', en: "I'm agree! I prepared a lot.", pt: 'Concordo! Me preparei bastante.' },
+  { tipo: 'correcao', disse: "I'm agree", certo: 'I agree', porque: 'Agree já é verbo. Sem o am.' },
+  { tipo: 'notas', foco: 'Verbos de opinião: agree, think, believe' },
+];
