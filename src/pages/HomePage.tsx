@@ -4,6 +4,7 @@ import { ArrowRight, Check, MessageCircle } from 'lucide-react';
 import TiltCard from '@/components/ui/tilt-card';
 import MagneticButton from '@/components/ui/magnetic-button';
 import Marquee from '@/components/ui/marquee';
+import LiveClass from '@/components/ui/live-class';
 import { ExpandCard, Abas } from '@/components/ui/disclosure';
 import {
   ArcDivider, SlantDivider, AmpersandMark, SpeechWaves,
@@ -199,6 +200,52 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ================================================================ */}
+      {/* UMA AULA POR DENTRO                                              */}
+      {/* ================================================================ */}
+      <section className="sg-bg-ember sg-grain relative overflow-hidden py-20 md:py-24">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative z-10 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
+          <motion.div {...surge}>
+            <Eyebrow className="mb-5">Uma aula por dentro</Eyebrow>
+            <h2 className="font-['Bricolage_Grotesque'] font-extrabold text-[32px] sm:text-[46px] leading-[1.0] tracking-[-0.035em] text-[#FFFDF9] m-0">
+              Você fala primeiro.
+              <br />
+              A correção vem na hora.
+            </h2>
+            <p className="text-[18px] leading-[1.6] text-[#C9BFB2] mt-5 mb-8 max-w-[520px]">
+              Nada de decorar regra antes de abrir a boca. A conversa revela o erro, o professor
+              ajusta no momento e o ajuste vira o foco da semana.
+            </p>
+
+            <ul className="grid gap-3 list-none p-0 m-0 mb-8">
+              {[
+                'Conversa real desde o primeiro minuto',
+                'Correção de estrutura, vocabulário e pronúncia',
+                'Session Notes ao fim de toda aula',
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3 text-[16px] leading-[1.5] text-[#F0E7D8]">
+                  <Check className="w-[18px] h-[18px] text-[#F0E7D8] flex-none mt-0.5" aria-hidden="true" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={caminhoDe('como')}
+              onClick={ir('como')}
+              className="group inline-flex items-center gap-2 font-bold text-[16px] text-[#FF5A00] sg-underline min-h-[44px] md:min-h-0"
+            >
+              Ver como funciona
+              <ArrowRight className="w-[18px] h-[18px] transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            </a>
+          </motion.div>
+
+          <motion.div {...surge}>
+            <LiveClass />
+          </motion.div>
         </div>
       </section>
 
